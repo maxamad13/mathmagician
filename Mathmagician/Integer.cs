@@ -8,34 +8,37 @@ namespace Mathmagician
 {
     public class Integer
     {
-        
+
         public int Max { get; private set; }
+        protected int Step { get; set; }
+        protected int First { get; set; }
 
         /*
-        using properties is like:
-        private_int Max = 50;
-        public inte GetMax(){
-            return this.Max
-            }
-            Private void Setmax(int new_Max){
-                this.Max= new_max;
-            }
-
-            */
+        Using properties is like:
+        private int MAX = 50;
+        public int GetMax() {
+            return this.MAX
+        }
+        private void SetMax(int new_max) {
+            this.MAX = new_max;
+        }
+         */
 
         public Integer()
         {
-            Max =50;
+            Max = 50;
+            Step = 1;
+            First = 0;
         }
 
-        public int GetFirst()
+        virtual public int GetFirst()
         {
-            return 0;
+            return First;
         }
 
-        public int GetNext(int current)
+        virtual public int GetNext(int current)
         {
-            return current + 1;
+            return current + Step;
         }
 
         public int[] GetSequence(int how_many)
@@ -49,20 +52,20 @@ namespace Mathmagician
             for (int i = 0; i < how_many; i++)
             {
                 seq_array[i] = i;
-            }
-            return seq_array;
-            */
+            }*/
             int counter = 0;
             seq_array[counter] = GetFirst();
-            while (counter<how_many)
+            while (counter < how_many - 1)
             {
-                /*
-                seq_array[counter + 1] = GetNext(counter);
+                /* Attempt 1
+                seq_array[counter+1] = GetNext(seq_array[counter]);
                 counter++;
                 */
                 counter++;
-                
+                seq_array[counter] = GetNext(seq_array[counter - 1]);
             }
+
+            return seq_array;
         }
     }
 }

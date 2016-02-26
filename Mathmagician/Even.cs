@@ -8,5 +8,10 @@ namespace Mathmagician
 {
     public class Even : Integer
     {
+        public Even()
+        {
+            Step = 2;
+            First = 2;
+        }
     }
 }
