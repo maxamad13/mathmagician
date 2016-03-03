@@ -68,5 +68,6 @@ namespace Mathmagician.Tests
             // This is a call the uses an older testing framework. (e.g. Koans)
             //Assert.Throws(typeof(Exception), my_int.GetSequence(my_int.Max));
         }
+
     }
 }
